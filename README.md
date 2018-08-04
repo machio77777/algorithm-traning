@@ -4,7 +4,7 @@
 【参考文献】
 [プログラミングコンテスト攻略のためのアルゴリズムとデータ構造](https://www.amazon.co.jp/dp/B00U5MVXZO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
 
-**アルゴリズムの効率評価**
+**■ アルゴリズムの効率評価**
 
 |評価項目|概要|
 |---|---|
