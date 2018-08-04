@@ -79,14 +79,42 @@ for ($i = 0; $i < $cnt; $i++) {
 }
 ```
 
-## データ構造
-- スタック
-- キュー
-- リスト
-
 ## 探索
-- 線形探索
-- 二分探索
-- ハッシュ法
+
+**■ 線形探索**
+- 計算量O(n)
+
+```php
+$idx = 0;
+foreach ($this->numbers as $number) {
+            
+    if ($number === $target) {
+        return $idx;
+    }
+    $idx++;
+}
+return "Not Found";
+```
+
+**■ 二分探索**
+- 計算量O(logN)
+
+```php
+$left = 0;
+$right = count($this->numbers);
+        
+while ($left < $right) {
+    $mid = ($left + $right) / 2;
+            
+    if ($target === $this->numbers[$mid]) {
+        return "Hit";
+    } elseif ($target > $this->numbers[$mid]) {
+        $left = $mid + 1;
+    } else {
+        $right = $mid;
+    }
+}
+return "Not Found";
+```
 
 ## 再帰・分割統治法
