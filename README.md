@@ -1,9 +1,6 @@
 
 # データ構造とアルゴリズム
 
-【参考文献】
-[プログラミングコンテスト攻略のためのアルゴリズムとデータ構造](https://www.amazon.co.jp/dp/B00U5MVXZO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
-
 **■ アルゴリズムの効率評価**
 
 |評価項目|概要|
@@ -17,6 +14,9 @@
 O(n)やO(logN)やO(NlogN)はnが増加してもさほど計算量は増減しないので効率◯
 O(n^2)の場合、計算量はn^2に比例するので計算効率は悪い
 ```
+
+【参考文献】
+[プログラミングコンテスト攻略のためのアルゴリズムとデータ構造](https://www.amazon.co.jp/dp/B00U5MVXZO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
 
 ## 初等整的列
 
