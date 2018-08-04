@@ -16,7 +16,7 @@ O(n^2)の場合、計算量はn^2に比例するので計算効率は悪い
 ```
 
 **【参考文献】**<br>
-[プログラミングコンテスト攻略のためのアルゴリズムとデータ構造](https://www.amazon.co.jp/dp/B00U5MVXZO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
+- [プログラミングコンテスト攻略のためのアルゴリズムとデータ構造](https://www.amazon.co.jp/dp/B00U5MVXZO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
 
 ## 初等整的列
 
