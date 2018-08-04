@@ -116,5 +116,3 @@ while ($left < $right) {
 }
 return "Not Found";
 ```
-
-## 再帰・分割統治法
