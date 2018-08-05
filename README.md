@@ -116,3 +116,34 @@ while ($left < $right) {
 }
 return "Not Found";
 ```
+
+### 再帰・分割倒置法
+
+^- 全検索
+- 計算量O(2^n)
+
+````php
+function solve($i, $m)
+{   
+    if ($m === 0) {
+        return true;
+    }
+    if ($i >= count($this->numbers)) {
+        return 0;
+    }
+    return $this->solve($i + 1, $m) || $this->solve($i + 1, $m - $this->numbers[$i]);
+}
+    
+function execute($target)
+{
+    $cnt = count($target);
+    for ($i = 0; $i < $cnt; $i++) {
+            
+        if ($this->solve(0, $target[$i])) {
+            echo "Yes" . PHP_EOL;
+        } else {
+            echo "No" . PHP_EOL;
+        }
+    }
+}
+````
