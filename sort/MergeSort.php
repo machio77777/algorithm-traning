@@ -2,82 +2,81 @@
 
 /**
  * マージソート
- * - 計算量O(nlogn)
- * TODO 作成中
  */
-class MergeSort {
+class MergeSort
+{
+    private $targets;
     
-    private $numbers;
-    
-    public function __construct($numbers)
+    public function __construct($targets)
     {
-        $this->numbers = $numbers;
+        $this->targets = $targets;
     }
     
     public function execute()
     {
-        echo "【整列前】" . PHP_EOL;
-        foreach ($this->numbers as $number) {
-            echo "{$number} ";
-        }
-        echo "" . PHP_EOL;
+        /* 整列前 */
+        $this->trace();
         
-        $cnt = count($this->numbers) - 1;
-        $this->merge($this->numbers, 0, $cnt);
+        $this->mergeSort(0, count($this->targets) - 1);
         
-        echo "【整列後】" . PHP_EOL;
-        foreach ($this->numbers as $number) {
-            echo "{$number} ";
-        }
-        echo "" . PHP_EOL;
+        /* 整列後 */
+        $this->trace();
     }
     
     /**
-     * マージ
+     * マージソート
      * @param integer $first
-     * @param integer $end
+     * @param integer $last
      */
-    private function merge(&$list, $first, $end)
+    private function mergeSort($first, $last)
     {
-        if ($first < $end) {
+        if ($first < $last) {
             
-            $center = intval(($first + $end) / 2);
-            $tmp = null;
+            $center = intval(($first + $last) / 2);
+            /* 前半マージ */
+            $this->mergeSort($first, $center);
+            /* 後半マージ */
+            $this->mergeSort($center + 1, $last);
             
-            // 前半部分ソート
-            $this->merge($list, $first, $center);
-            // 後半部分ソート
-            $this->merge($list, $center + 1, $end);
-            
-            // ソート済み部分の保存
+            /* ソート済み要素の退避 */
             $p = 0;
             for ($i = $first; $i <= $center; $i++) {
-                $tmp[$p++] = $list[$i];
+                $tmp[$p++] = $this->targets[$i];
             }
             
             $j = 0;
             $k = $first;
-            while ($i <= $end && $j < $p) {
-                
-                if ($tmp[$j] <= $list[$i]) {
-                    $list[$k] = $tmp[$j];
+            while ($i <= $last && $j < $p) {
+                /* 前半部分が後半部分より小さい場合 */
+                if ($tmp[$j] <= $this->targets[$i]) {
+                    $this->targets[$k] = $tmp[$j];
                     $k++;
-                    $p++;
+                    $j++;
+                /* 後半部分の方が小さい場合 */
                 } else {
-                    $list[$k] = $list[$i];
+                    $this->targets[$k] = $this->targets[$i];
                     $k++;
                     $i++;
                 }
             }
             
             while ($j < $p) {
-                $list[$k++] = $tmp[$j++];
+                $this->targets[$k++] = $tmp[$j++];
             }
         }
     }
+    
+    private function trace()
+    {
+        foreach ($this->targets as $number) {
+            echo "{$number} ";
+        }
+        echo "" . PHP_EOL;
+    }
 }
 
-$numbers = range(0, 20, 1);
-shuffle($numbers);
-$conductor = new MergeSort($numbers);
+$targets = range(0, 30 , 1);
+shuffle($targets);
+$conductor = new MergeSort($targets);
 $conductor->execute();
+    
