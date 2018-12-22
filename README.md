@@ -1,4 +1,8 @@
 
 # アルゴリズム
 
-[C++](https://machio77777.github.io/algorithms/)
+- [C++でのアルゴリズム](https://machio77777.github.io/algorithms/)
+
+## 参考
+- 基礎からしっかり学ぶC++の教科書 C++14対応 マイクロソフト関連書
+- プログラミングコンテスト攻略のためのアルゴリズムとデータ構造
