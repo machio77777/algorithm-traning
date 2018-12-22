@@ -1,0 +1,24 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/machio77777/algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/machio77777/algorithms/issues"
+  },
+  "homepage": "https://github.com/machio77777/algorithms#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.8"
+  }
+}
