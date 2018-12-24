@@ -1,8 +1,10 @@
 
 module.exports = {
   themeConfig: {
-    sidebar: 'auto',
-    displayAllHeaders: true
+    sidebar: [
+      '/',
+      '/sort/'
+    ]
   },
   base: '/algorithms/',
   dest: 'docs'
