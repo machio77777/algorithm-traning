@@ -7,7 +7,7 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.257fa5c9.js" as="script"><link rel="preload" href="/algorithms/assets/js/4.032e8abe.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.7dc2d760.js"><link rel="prefetch" href="/algorithms/assets/js/5.172968dc.js">
+    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.77a904bf.js" as="script"><link rel="preload" href="/algorithms/assets/js/4.eea46fe3.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.7dc2d760.js"><link rel="prefetch" href="/algorithms/assets/js/5.172968dc.js">
     <link rel="stylesheet" href="/algorithms/assets/css/0.styles.a48b4873.css">
   </head>
   <body>
@@ -111,11 +111,59 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div><h2 id="選択ソート"><a href="#選択ソート" aria-hidden="true" class="header-anchor">#</a> 3️⃣ 選択ソート.</h2> <h2 id="選択ソート-2"><a href="#選択ソート-2" aria-hidden="true" class="header-anchor">#</a> 4️⃣ 選択ソート.</h2> <h2 id="安定ソート"><a href="#安定ソート" aria-hidden="true" class="header-anchor">#</a> 5️⃣ 安定ソート.</h2> <h2 id="シェルソート"><a href="#シェルソート" aria-hidden="true" class="header-anchor">#</a> 6️⃣ シェルソート.</h2></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><h2 id="選択ソート"><a href="#選択ソート" aria-hidden="true" class="header-anchor">#</a> 3️⃣ 選択ソート.</h2> <ul><li>安定なソートアルゴリズムだが、計算量O(nの2乗)となる.</li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// [選択ソート]</span>
+<span class="token comment">// 挿入ソート同様に[ソート済みの部分列]と[未ソートの部分列]に分ける.</span>
+<span class="token comment">// 以下の処理をN-1回繰り返す.</span>
+<span class="token comment">// 1. 未ソート部分列から最小の要素の位置minjを特定.</span>
+<span class="token comment">// 2. minjの位置にある要素と未ソート部分の先頭要素を交換.</span>
+<span class="token keyword">void</span> <span class="token function">selection</span><span class="token punctuation">(</span><span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> minj<span class="token punctuation">,</span> tmp<span class="token punctuation">;</span>
+    
+    <span class="token comment">// i:未ソート部分の先頭を表すループ変数</span>
+    <span class="token comment">// 配列Aの先頭から末尾に向けて移動.</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 各ループ処理でi番目からN-1番目迄の要素で最小要素の位置.</span>
+        minj <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token comment">// j:未ソート部分から最小要素の位置(minj)を探すためのループ変数.</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// minjの隣り合う要素がminj要素より小さければminjを入れ替える.</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> A<span class="token punctuation">[</span>minj<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                minj <span class="token operator">=</span> j<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 未ソート部分の先頭(i)要素は一時領域へ.</span>
+        tmp <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// 未ソート部分の最小要素(minj)と未ソート部分の先頭要素を入れ替える.</span>
+        A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>minj<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        A<span class="token punctuation">[</span>minj<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 選択ソート処理.</span>
+    <span class="token function">selection</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="選択ソート-2"><a href="#選択ソート-2" aria-hidden="true" class="header-anchor">#</a> 4️⃣ 選択ソート.</h2> <h2 id="安定ソート"><a href="#安定ソート" aria-hidden="true" class="header-anchor">#</a> 5️⃣ 安定ソート.</h2> <h2 id="シェルソート"><a href="#シェルソート" aria-hidden="true" class="header-anchor">#</a> 6️⃣ シェルソート.</h2></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/algorithms/" class="prev router-link-active">
           📋 データ構造とアルゴリズム.
         </a></span> <!----></p></div> </div> <!----></div></div>
-    <script src="/algorithms/assets/js/app.257fa5c9.js" defer></script><script src="/algorithms/assets/js/4.032e8abe.js" defer></script>
+    <script src="/algorithms/assets/js/app.77a904bf.js" defer></script><script src="/algorithms/assets/js/4.eea46fe3.js" defer></script>
   </body>
 </html>
