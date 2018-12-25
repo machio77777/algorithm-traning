@@ -7,7 +7,7 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.cf5d0ace.js" as="script"><link rel="preload" href="/algorithms/assets/js/4.f8bd950b.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.7dc2d760.js"><link rel="prefetch" href="/algorithms/assets/js/5.172968dc.js">
+    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.b8b0d839.js" as="script"><link rel="preload" href="/algorithms/assets/js/4.032e8abe.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.7dc2d760.js"><link rel="prefetch" href="/algorithms/assets/js/5.172968dc.js">
     <link rel="stylesheet" href="/algorithms/assets/css/0.styles.a48b4873.css">
   </head>
   <body>
@@ -33,7 +33,7 @@
 
 <span class="token comment">// [挿入ソート]</span>
 <span class="token comment">// [ソート済みの部分列]と[未ソートの部分列]に分割.</span>
-<span class="token comment">// 先頭の要素はソート済みをみなす.</span>
+<span class="token comment">// 先頭の要素はソート済みと見なす.</span>
 <span class="token comment">// 1. 未ソート部分の先頭から要素を1つ取り出しvに記録.</span>
 <span class="token comment">// 2. ソート済みの部分において、vより大きい要素を後方へ1つずつ移動.</span>
 <span class="token comment">// 3. 最後に空いた位置に「取り出した要素v」を挿入.</span>
@@ -72,11 +72,50 @@
     
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div><h2 id="バブルソート"><a href="#バブルソート" aria-hidden="true" class="header-anchor">#</a> 2️⃣ バブルソート.</h2> <h2 id="選択ソート"><a href="#選択ソート" aria-hidden="true" class="header-anchor">#</a> 3️⃣ 選択ソート.</h2> <h2 id="選択ソート-2"><a href="#選択ソート-2" aria-hidden="true" class="header-anchor">#</a> 4️⃣ 選択ソート.</h2> <h2 id="安定ソート"><a href="#安定ソート" aria-hidden="true" class="header-anchor">#</a> 5️⃣ 安定ソート.</h2> <h2 id="シェルソート"><a href="#シェルソート" aria-hidden="true" class="header-anchor">#</a> 6️⃣ シェルソート.</h2></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><h2 id="バブルソート"><a href="#バブルソート" aria-hidden="true" class="header-anchor">#</a> 2️⃣ バブルソート.</h2> <ul><li>安定なソートアルゴリズムだが、計算量O(nの2乗)となる.</li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// [バブルソート]</span>
+<span class="token comment">// 挿入ソート同様に[ソート済みの部分列]と[未ソートの部分列]に分けられる.</span>
+<span class="token comment">// 未ソート部分が無くなる迄、以下の処理を繰り返す.</span>
+<span class="token comment">// 1. 配列の末尾から隣接する要素を順番に比べ、大小関係が逆の場合は入れ替える.</span>
+<span class="token keyword">void</span> <span class="token function">bubble</span><span class="token punctuation">(</span><span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token comment">// i:未ソート部分の先頭インデックス.</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// j:未ソート部分の隣り合う要素を比較するインデックス.</span>
+        <span class="token comment">// 配列Aの末尾(N-1)からi+1までを移動.</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> N <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&gt;=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 隣り合う要素を比較.</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> A<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> tmp <span class="token operator">=</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                A<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// バブルソート処理.</span>
+    <span class="token function">bubble</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="選択ソート"><a href="#選択ソート" aria-hidden="true" class="header-anchor">#</a> 3️⃣ 選択ソート.</h2> <h2 id="選択ソート-2"><a href="#選択ソート-2" aria-hidden="true" class="header-anchor">#</a> 4️⃣ 選択ソート.</h2> <h2 id="安定ソート"><a href="#安定ソート" aria-hidden="true" class="header-anchor">#</a> 5️⃣ 安定ソート.</h2> <h2 id="シェルソート"><a href="#シェルソート" aria-hidden="true" class="header-anchor">#</a> 6️⃣ シェルソート.</h2></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/algorithms/" class="prev router-link-active">
           📋 データ構造とアルゴリズム.
         </a></span> <!----></p></div> </div> <!----></div></div>
-    <script src="/algorithms/assets/js/app.cf5d0ace.js" defer></script><script src="/algorithms/assets/js/4.f8bd950b.js" defer></script>
+    <script src="/algorithms/assets/js/app.b8b0d839.js" defer></script><script src="/algorithms/assets/js/4.032e8abe.js" defer></script>
   </body>
 </html>
