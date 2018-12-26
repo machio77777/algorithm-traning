@@ -3,7 +3,8 @@ module.exports = {
   themeConfig: {
     sidebar: [
       '/',
-      '/sort/'
+      '/sort/',
+      '/structure/'
     ]
   },
   base: '/algorithms/',
