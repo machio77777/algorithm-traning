@@ -4,7 +4,8 @@ module.exports = {
     sidebar: [
       '/',
       '/sort/',
-      '/structure/'
+      '/structure/',
+      '/search/'
     ]
   },
   base: '/algorithms/',
