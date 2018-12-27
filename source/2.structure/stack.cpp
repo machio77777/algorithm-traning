@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -17,34 +18,34 @@ int pop() {
     return S[top+1]; 
 }
 
-// スタック[LIFO]
-int main(int argc, char** argv) {
+int main(void){
+    
+    vector<string> strList = { "7", "3", "+", "10", "8", "-", "7", "4", "*" };
     
     int a, b;
     top = 0;
-    char s[1000];
     
-    while (scanf("%s", s) != EOF) {
-        if (s[0] == '+') {
+    for (int i = 0; i < strList.size(); i++) {
+        if (strList[i] == "+") {
             a = pop();
             b = pop();
+            cout << a + b << endl;
             push(a + b);
-        } else if (s[0] == '-') {
+        } else if (strList[i] == "-") {
             b = pop();
             a = pop();
+            cout << a - b << endl;
             push(a - b);
-        } else if (s[0] == '*') {
+        } else if (strList[i] == "*") {
             a = pop();
             b = pop();
+            cout << a * b << endl;
             push(a * b);
         } else {
-            push(atoi(s));
+            int num = stoi(strList[i]);
+            push(num);
         }
     }
-    
     printf("%d\n", pop());
-    
     return 0;
 }
-
-
