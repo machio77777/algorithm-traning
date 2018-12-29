@@ -5,7 +5,9 @@ module.exports = {
       '/',
       '/sort/',
       '/structure/',
-      '/search/'
+      '/search/',
+      '/recursion/',
+      '/hsort/'
     ]
   },
   base: '/algorithms/',

@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
 ```
 
 ## :two: 二分探索.
-- Sの要素が昇順ソートされている制約を上手く活用して二分探索を活用し計算量O(log2N).
+- Sの要素が昇順ソートされている制約を利用した二分探索は計算量O(log2N).
 ```cpp
 #include <iostream>
 
@@ -90,10 +90,4 @@ int main(int argc, char** argv) {
     cout << sum << endl;
     return 0;
 }
-```
-
-## :three: ハッシュ.
-- 
-```cpp
-// 保留
 ```
