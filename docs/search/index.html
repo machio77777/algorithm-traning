@@ -7,7 +7,7 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.003ab0bb.js" as="script"><link rel="preload" href="/algorithms/assets/js/4.84c5ac98.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.8a296506.js"><link rel="prefetch" href="/algorithms/assets/js/5.b372128e.js"><link rel="prefetch" href="/algorithms/assets/js/6.996eca4d.js"><link rel="prefetch" href="/algorithms/assets/js/7.207563a9.js">
+    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.a81a5087.js" as="script"><link rel="preload" href="/algorithms/assets/js/4.99c720c5.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.7b50b5b3.js"><link rel="prefetch" href="/algorithms/assets/js/5.b372128e.js"><link rel="prefetch" href="/algorithms/assets/js/6.996eca4d.js"><link rel="prefetch" href="/algorithms/assets/js/7.207563a9.js">
     <link rel="stylesheet" href="/algorithms/assets/css/0.styles.a48b4873.css">
   </head>
   <body>
@@ -46,13 +46,57 @@
     cout <span class="token operator">&lt;&lt;</span> sum <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div><h2 id="二分探索"><a href="#二分探索" aria-hidden="true" class="header-anchor">#</a> 2️⃣ 二分探索.</h2> <ul><li></li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 保留</span>
+</code></pre></div><h2 id="二分探索"><a href="#二分探索" aria-hidden="true" class="header-anchor">#</a> 2️⃣ 二分探索.</h2> <ul><li>Sの要素が昇順ソートされている制約を上手く活用して二分探索を活用し計算量O(log2N).</li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> S<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 二分探索</span>
+<span class="token keyword">int</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> right <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> mid<span class="token punctuation">;</span>
+    
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">// 中間要素とkeyが同一の場合</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">==</span> S<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 後半部分を検索させるよう制御</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&gt;</span> S<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 前半部分を検索させるよう制御</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            right <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> T<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">88</span><span class="token punctuation">,</span> <span class="token number">43</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> q <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> q<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">binarySearch</span><span class="token punctuation">(</span>T<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sum<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> sum <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre></div><h2 id="ハッシュ"><a href="#ハッシュ" aria-hidden="true" class="header-anchor">#</a> 3️⃣ ハッシュ.</h2> <ul><li></li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 保留</span>
 </code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/algorithms/structure/" class="prev">
           📋 データ構造.
         </a></span> <!----></p></div> </div> <!----></div></div>
-    <script src="/algorithms/assets/js/app.003ab0bb.js" defer></script><script src="/algorithms/assets/js/4.84c5ac98.js" defer></script>
+    <script src="/algorithms/assets/js/app.a81a5087.js" defer></script><script src="/algorithms/assets/js/4.99c720c5.js" defer></script>
   </body>
 </html>

@@ -8,3 +8,4 @@ C++言語でのアルゴリズムとデータ構造.
 
 :small_blue_diamond: 初等的整列.  
 :small_blue_diamond: データ構造.  
+:small_blue_diamond: 探索.  
