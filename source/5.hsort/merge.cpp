@@ -1,9 +1,3 @@
-
-# :clipboard: 高等的数列.
-
-## :one: マージソート.
-- 指定要素を部分配列に分解してソート、最後にソート済み配列をマージするので計算量O(nlogn).
-```cpp
 #include <iostream>
 
 using namespace std;
@@ -72,17 +66,5 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-```
 
-## :two: パーティション.
-
-## :three: クイックソート.
-
-## :four: 計数ソート.
-
-## :five: 標準ライブラリ.
-
-## :six: 反転数.
-
-## :seven: 最小コストソート.
 
