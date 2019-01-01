@@ -9,3 +9,5 @@ C++言語でのアルゴリズムとデータ構造.
 :small_blue_diamond: 初等的整列.  
 :small_blue_diamond: データ構造.  
 :small_blue_diamond: 探索.  
+:small_blue_diamond: 再帰と分割統治法.  
+:small_blue_diamond: 高等的整列.  
