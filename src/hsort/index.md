@@ -191,12 +191,3 @@ int main(int argc, char** argv) {
     return 0;
 }
 ```
-
-## :four: 計数ソート.
-
-## :five: 標準ライブラリ.
-
-## :six: 反転数.
-
-## :seven: 最小コストソート.
-

@@ -7,7 +7,10 @@ module.exports = {
       '/structure/',
       '/search/',
       '/recursion/',
-      '/hsort/'
+      '/hsort/',
+      '/tree/',
+      '/binary/',
+      '/heap/'
     ]
   },
   base: '/algorithms/',
