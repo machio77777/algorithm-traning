@@ -9,8 +9,7 @@ module.exports = {
       '/recursion/',
       '/hsort/',
       '/tree/',
-      '/binary/',
-      '/heap/'
+      '/binary/'
     ]
   },
   base: '/algorithms/',
