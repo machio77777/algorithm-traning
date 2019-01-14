@@ -13,4 +13,3 @@ C++言語でのアルゴリズムとデータ構造.
 :small_blue_diamond: 高等的整列.  
 :small_blue_diamond: 木.  
 :small_blue_diamond: 二分探索木.  
-:small_blue_diamond: ヒープ.  
