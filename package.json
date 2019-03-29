@@ -1,5 +1,5 @@
 {
-  "name": "algorithms",
+  "name": "algorithm-traning",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/machio77777/algorithms.git"
+    "url": "git+https://github.com/machio77777/algorithm-traning.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/machio77777/algorithms/issues"
+    "url": "https://github.com/machio77777/algorithm-traning/issues"
   },
-  "homepage": "https://github.com/machio77777/algorithms#readme",
+  "homepage": "https://github.com/machio77777/algorithm-traning#readme",
   "devDependencies": {
     "vuepress": "^0.14.8"
   }

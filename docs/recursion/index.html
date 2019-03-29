@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>📋 再帰と分割統治法.</title>
+    <title>再帰と分割統治法. | データ構造とアルゴリズム</title>
     <meta name="description" content="">
+    <link rel="icon" type="image/png" href="/algorithm-traning/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kosugi+Maru">
     
-    
-    <link rel="preload" href="/algorithms/assets/css/0.styles.a48b4873.css" as="style"><link rel="preload" href="/algorithms/assets/js/app.86d5ea8f.js" as="script"><link rel="preload" href="/algorithms/assets/js/7.8ee6e67b.js" as="script"><link rel="prefetch" href="/algorithms/assets/js/10.0ad3437d.js"><link rel="prefetch" href="/algorithms/assets/js/11.89afbe77.js"><link rel="prefetch" href="/algorithms/assets/js/12.78ea4659.js"><link rel="prefetch" href="/algorithms/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithms/assets/js/3.cef8b679.js"><link rel="prefetch" href="/algorithms/assets/js/4.c33e2ba7.js"><link rel="prefetch" href="/algorithms/assets/js/5.ab40a66a.js"><link rel="prefetch" href="/algorithms/assets/js/6.55dae936.js"><link rel="prefetch" href="/algorithms/assets/js/8.7e353cd0.js"><link rel="prefetch" href="/algorithms/assets/js/9.c9099acf.js">
-    <link rel="stylesheet" href="/algorithms/assets/css/0.styles.a48b4873.css">
+    <link rel="preload" href="/algorithm-traning/assets/css/0.styles.73588f36.css" as="style"><link rel="preload" href="/algorithm-traning/assets/js/app.8ad35b17.js" as="script"><link rel="preload" href="/algorithm-traning/assets/js/7.3061c698.js" as="script"><link rel="prefetch" href="/algorithm-traning/assets/js/10.2134dcc4.js"><link rel="prefetch" href="/algorithm-traning/assets/js/11.f81496f5.js"><link rel="prefetch" href="/algorithm-traning/assets/js/12.78ea4659.js"><link rel="prefetch" href="/algorithm-traning/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithm-traning/assets/js/3.511b3a7a.js"><link rel="prefetch" href="/algorithm-traning/assets/js/4.93f2fb22.js"><link rel="prefetch" href="/algorithm-traning/assets/js/5.8ec66eb7.js"><link rel="prefetch" href="/algorithm-traning/assets/js/6.2c3c037b.js"><link rel="prefetch" href="/algorithm-traning/assets/js/8.13728892.js"><link rel="prefetch" href="/algorithm-traning/assets/js/9.60e13dee.js">
+    <link rel="stylesheet" href="/algorithm-traning/assets/css/0.styles.73588f36.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/algorithms/" class="home-link router-link-active"></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/algorithms/" class="sidebar-link">🏠 データ構造とアルゴリズム.</a></li><li><a href="/algorithms/sort/" class="sidebar-link">📋 初等的整列.</a></li><li><a href="/algorithms/structure/" class="sidebar-link">📋 データ構造.</a></li><li><a href="/algorithms/search/" class="sidebar-link">📋 探索.</a></li><li><a href="/algorithms/recursion/" class="active sidebar-link">📋 再帰と分割統治法.</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/algorithms/recursion/#全検索" class="sidebar-link">1️⃣ 全検索.</a></li></ul></li><li><a href="/algorithms/hsort/" class="sidebar-link">📋 高等的数列.</a></li><li><a href="/algorithms/tree/" class="sidebar-link">📋 木.</a></li><li><a href="/algorithms/binary/" class="sidebar-link">📋 二分探索木.</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="再帰と分割統治法"><a href="#再帰と分割統治法" aria-hidden="true" class="header-anchor">#</a> 📋 再帰と分割統治法.</h1> <p>分割統治法は以下の手順に基づきアルゴリズムが実装される.</p> <ul><li>与えられた問題を部分問題に分割する(Divide).</li> <li>部分問題を再帰的に解く(Solve).</li> <li>得られた部分問題の解を統合して元の問題を解く(Conquer).</li></ul> <h2 id="全検索"><a href="#全検索" aria-hidden="true" class="header-anchor">#</a> 1️⃣ 全検索.</h2> <ul><li>再帰関数の中で2つの再帰関数を呼び出せば計算量O(2のn乗)となる.</li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/algorithm-traning/" class="home-link router-link-active"><!----> <span class="site-name">データ構造とアルゴリズム</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/algorithm-traning/" class="sidebar-link">データ構造とアルゴリズム.</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="再帰と分割統治法"><a href="#再帰と分割統治法" aria-hidden="true" class="header-anchor">#</a> 再帰と分割統治法.</h1> <p>分割統治法は以下の手順に基づきアルゴリズムが実装される.</p> <ul><li>与えられた問題を部分問題に分割する(Divide).</li> <li>部分問題を再帰的に解く(Solve).</li> <li>得られた部分問題の解を統合して元の問題を解く(Conquer).</li></ul> <h2 id="全検索"><a href="#全検索" aria-hidden="true" class="header-anchor">#</a> 1️⃣ 全検索.</h2> <ul><li>再帰関数の中で2つの再帰関数を呼び出せば計算量O(2のn乗)となる.</li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -48,15 +49,7 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
-        ←
-        <a href="/algorithms/search/" class="prev">
-          📋 探索.
-        </a></span> <span class="next"><a href="/algorithms/hsort/">
-          📋 高等的数列.
-        </a>
-        →
-      </span></p></div> </div> <!----></div></div>
-    <script src="/algorithms/assets/js/app.86d5ea8f.js" defer></script><script src="/algorithms/assets/js/7.8ee6e67b.js" defer></script>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/algorithm-traning/assets/js/app.8ad35b17.js" defer></script><script src="/algorithm-traning/assets/js/7.3061c698.js" defer></script>
   </body>
 </html>
