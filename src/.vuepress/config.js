@@ -7,6 +7,21 @@ module.exports = {
   themeConfig: {
     sidebar: [
       '/',
+      '/insertsort/',
+      '/bubblesort/',
+      '/selectsort/',
+      '/shellsort/',
+      '/mergesort/',
+      '/partition/',
+      '/quicksort/',
+      '/stack/',
+      '/allsearch/',
+      '/linearsearch/',
+      '/splitsearch/',
+      '/roottree/',
+      '/binarytree/',
+      '/patroltree/',
+      '/binarysearch/'
     ]
   },
   title: 'データ構造とアルゴリズム',

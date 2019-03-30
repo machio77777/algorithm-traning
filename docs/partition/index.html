@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>📕 パーティション. | データ構造とアルゴリズム</title>
+    <meta name="description" content="">
+    <link rel="icon" type="image/png" href="/algorithm-traning/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kosugi+Maru">
+    
+    <link rel="preload" href="/algorithm-traning/assets/css/0.styles.73588f36.css" as="style"><link rel="preload" href="/algorithm-traning/assets/js/app.e15e1334.js" as="script"><link rel="preload" href="/algorithm-traning/assets/js/13.5d4f188d.js" as="script"><link rel="prefetch" href="/algorithm-traning/assets/js/10.fcf83ea1.js"><link rel="prefetch" href="/algorithm-traning/assets/js/11.c6d7c6b6.js"><link rel="prefetch" href="/algorithm-traning/assets/js/12.678a3ecc.js"><link rel="prefetch" href="/algorithm-traning/assets/js/14.fbf9e435.js"><link rel="prefetch" href="/algorithm-traning/assets/js/15.6a1c5062.js"><link rel="prefetch" href="/algorithm-traning/assets/js/16.d3c96374.js"><link rel="prefetch" href="/algorithm-traning/assets/js/17.16a5dec4.js"><link rel="prefetch" href="/algorithm-traning/assets/js/18.5823c62a.js"><link rel="prefetch" href="/algorithm-traning/assets/js/19.f5492460.js"><link rel="prefetch" href="/algorithm-traning/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithm-traning/assets/js/20.7b2e9d3b.js"><link rel="prefetch" href="/algorithm-traning/assets/js/21.7ccfd1c6.js"><link rel="prefetch" href="/algorithm-traning/assets/js/3.b923b75d.js"><link rel="prefetch" href="/algorithm-traning/assets/js/4.712925b3.js"><link rel="prefetch" href="/algorithm-traning/assets/js/5.d4fbb38b.js"><link rel="prefetch" href="/algorithm-traning/assets/js/6.5b179bc7.js"><link rel="prefetch" href="/algorithm-traning/assets/js/7.6b07a159.js"><link rel="prefetch" href="/algorithm-traning/assets/js/8.ce6c6f3e.js"><link rel="prefetch" href="/algorithm-traning/assets/js/9.ff42fc13.js">
+    <link rel="stylesheet" href="/algorithm-traning/assets/css/0.styles.73588f36.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/algorithm-traning/" class="home-link router-link-active"><!----> <span class="site-name">データ構造とアルゴリズム</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/algorithm-traning/" class="sidebar-link">データ構造とアルゴリズム.</a></li><li><a href="/algorithm-traning/insertsort/" class="sidebar-link">📕 挿入ソート.</a></li><li><a href="/algorithm-traning/bubblesort/" class="sidebar-link">📕 バブルソート.</a></li><li><a href="/algorithm-traning/selectsort/" class="sidebar-link">📕 選択ソート.</a></li><li><a href="/algorithm-traning/shellsort/" class="sidebar-link">📕 シェルソート.</a></li><li><a href="/algorithm-traning/mergesort/" class="sidebar-link">📕 マージソート.</a></li><li><a href="/algorithm-traning/partition/" class="active sidebar-link">📕 パーティション.</a></li><li><a href="/algorithm-traning/quicksort/" class="sidebar-link">📕 クイックソート.</a></li><li><a href="/algorithm-traning/stack/" class="sidebar-link">📙 スタック.</a></li><li><a href="/algorithm-traning/allsearch/" class="sidebar-link">📒 全検索.</a></li><li><a href="/algorithm-traning/linearsearch/" class="sidebar-link">📘 線形探索.</a></li><li><a href="/algorithm-traning/splitsearch/" class="sidebar-link">📘 二分探索.</a></li><li><a href="/algorithm-traning/roottree/" class="sidebar-link">📘 根付き木.</a></li><li><a href="/algorithm-traning/binarytree/" class="sidebar-link">📘 二分木.</a></li><li><a href="/algorithm-traning/patroltree/" class="sidebar-link">📘 木の巡回.</a></li><li><a href="/algorithm-traning/binarysearch/" class="sidebar-link">📘 二分探索木.</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="パーティション"><a href="#パーティション" aria-hidden="true" class="header-anchor">#</a> 📕 パーティション.</h1> <p>📋jがpからr-1まで毎回1回つ後方に移動するので、計算量O(n)のアルゴリズムとなる.</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 基準となるx以下の要素がpからiまでの範囲(iを含む)</span>
+<span class="token comment">// xより大きな要素がi+1からjまでの範囲(jを含まない)</span>
+<span class="token keyword">int</span> <span class="token function">partition</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token comment">// 基準値は最後方要素</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> A<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// グループ1(x以下の要素)中の最大Idx</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> p <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment">// グループ2(xより大きい要素)中の最大Idx-1</span>
+    <span class="token keyword">int</span> j<span class="token punctuation">;</span>
+    
+    <span class="token comment">// 毎回の計算ステップでは必ずjを+1してA[j]をどちらのグループに属するか判定</span>
+    <span class="token keyword">int</span> t<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> p<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> r<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// A[j]がx以下の場合、A[j]とA[i]を交換</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+            t <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment">// A[j]がxよりも大きい場合、要素の移動はなし</span>
+    <span class="token punctuation">}</span>
+    t <span class="token operator">=</span> A<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> A<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span> A<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> q <span class="token operator">=</span> <span class="token function">partition</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// [実行結果] 9 5 8 7 4 2 6 [11] 21 13 19 12</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;[&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cout <span class="token operator">&lt;&lt;</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/algorithm-traning/mergesort/" class="prev">
+          📕 マージソート.
+        </a></span> <span class="next"><a href="/algorithm-traning/quicksort/">
+          📕 クイックソート.
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/algorithm-traning/assets/js/app.e15e1334.js" defer></script><script src="/algorithm-traning/assets/js/13.5d4f188d.js" defer></script>
+  </body>
+</html>

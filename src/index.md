@@ -5,21 +5,27 @@
 
 :clipboard:**整列.**  
 
-:closed_book:[挿入](/sort/) | :closed_book:[バブル](/sort/) | :closed_book:[選択](/sort/) | :closed_book:[シェル](/sort/) | :closed_book:[マージ](/hsort/) | :closed_book:[パーティション](/hsort/) | :closed_book:[クイック](/hsort/)  
+:closed_book:[挿入](/insertsort/) | 
+:closed_book:[バブル](/bubblesort/) | 
+:closed_book:[選択](/selectsort/) | 
+:closed_book:[シェル](/shellsort/) | 
+:closed_book:[マージ](/mergesort/) | 
+:closed_book:[パーティション](/partition/) | 
+:closed_book:[クイック](/quicksort/)  
 
 :clipboard:**データ構造.**
 
-:orange_book:[スタック](/structure/) 
+:orange_book:[スタック](/stack/) 
 
 :clipboard:**再帰と分割統治法.**
 
-:ledger:[全検索](/recursion/)  
+:ledger:[全検索](/allsearch/)  
 
 :clipboard:**探索と木構造.**
 
-:blue_book:[線形探索](/search/) | :blue_book:[二分探索](/search/)  
-:blue_book:[根付き木](/tree/) | :blue_book:[二分木](/tree/) | :blue_book:[木の巡回](/tree/)  
-:blue_book:[二分探索木](/binary/)  
+:blue_book:[線形探索](/linearsearch/) | :blue_book:[二分探索](/splitsearch/)  
+:blue_book:[根付き木](/roottree/) | :blue_book:[二分木](/binarytree/) | :blue_book:[木の巡回](/patroltree/)  
+:blue_book:[二分探索木](/binarysearch/)  
 
 **:clipboard:参考文献.**
 

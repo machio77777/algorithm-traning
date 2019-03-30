@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>📕 挿入ソート. | データ構造とアルゴリズム</title>
+    <meta name="description" content="">
+    <link rel="icon" type="image/png" href="/algorithm-traning/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kosugi+Maru">
+    
+    <link rel="preload" href="/algorithm-traning/assets/css/0.styles.73588f36.css" as="style"><link rel="preload" href="/algorithm-traning/assets/js/app.e15e1334.js" as="script"><link rel="preload" href="/algorithm-traning/assets/js/10.fcf83ea1.js" as="script"><link rel="prefetch" href="/algorithm-traning/assets/js/11.c6d7c6b6.js"><link rel="prefetch" href="/algorithm-traning/assets/js/12.678a3ecc.js"><link rel="prefetch" href="/algorithm-traning/assets/js/13.5d4f188d.js"><link rel="prefetch" href="/algorithm-traning/assets/js/14.fbf9e435.js"><link rel="prefetch" href="/algorithm-traning/assets/js/15.6a1c5062.js"><link rel="prefetch" href="/algorithm-traning/assets/js/16.d3c96374.js"><link rel="prefetch" href="/algorithm-traning/assets/js/17.16a5dec4.js"><link rel="prefetch" href="/algorithm-traning/assets/js/18.5823c62a.js"><link rel="prefetch" href="/algorithm-traning/assets/js/19.f5492460.js"><link rel="prefetch" href="/algorithm-traning/assets/js/2.1a3627a8.js"><link rel="prefetch" href="/algorithm-traning/assets/js/20.7b2e9d3b.js"><link rel="prefetch" href="/algorithm-traning/assets/js/21.7ccfd1c6.js"><link rel="prefetch" href="/algorithm-traning/assets/js/3.b923b75d.js"><link rel="prefetch" href="/algorithm-traning/assets/js/4.712925b3.js"><link rel="prefetch" href="/algorithm-traning/assets/js/5.d4fbb38b.js"><link rel="prefetch" href="/algorithm-traning/assets/js/6.5b179bc7.js"><link rel="prefetch" href="/algorithm-traning/assets/js/7.6b07a159.js"><link rel="prefetch" href="/algorithm-traning/assets/js/8.ce6c6f3e.js"><link rel="prefetch" href="/algorithm-traning/assets/js/9.ff42fc13.js">
+    <link rel="stylesheet" href="/algorithm-traning/assets/css/0.styles.73588f36.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/algorithm-traning/" class="home-link router-link-active"><!----> <span class="site-name">データ構造とアルゴリズム</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/algorithm-traning/" class="sidebar-link">データ構造とアルゴリズム.</a></li><li><a href="/algorithm-traning/insertsort/" class="active sidebar-link">📕 挿入ソート.</a></li><li><a href="/algorithm-traning/bubblesort/" class="sidebar-link">📕 バブルソート.</a></li><li><a href="/algorithm-traning/selectsort/" class="sidebar-link">📕 選択ソート.</a></li><li><a href="/algorithm-traning/shellsort/" class="sidebar-link">📕 シェルソート.</a></li><li><a href="/algorithm-traning/mergesort/" class="sidebar-link">📕 マージソート.</a></li><li><a href="/algorithm-traning/partition/" class="sidebar-link">📕 パーティション.</a></li><li><a href="/algorithm-traning/quicksort/" class="sidebar-link">📕 クイックソート.</a></li><li><a href="/algorithm-traning/stack/" class="sidebar-link">📙 スタック.</a></li><li><a href="/algorithm-traning/allsearch/" class="sidebar-link">📒 全検索.</a></li><li><a href="/algorithm-traning/linearsearch/" class="sidebar-link">📘 線形探索.</a></li><li><a href="/algorithm-traning/splitsearch/" class="sidebar-link">📘 二分探索.</a></li><li><a href="/algorithm-traning/roottree/" class="sidebar-link">📘 根付き木.</a></li><li><a href="/algorithm-traning/binarytree/" class="sidebar-link">📘 二分木.</a></li><li><a href="/algorithm-traning/patroltree/" class="sidebar-link">📘 木の巡回.</a></li><li><a href="/algorithm-traning/binarysearch/" class="sidebar-link">📘 二分探索木.</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="挿入ソート"><a href="#挿入ソート" aria-hidden="true" class="header-anchor">#</a> 📕 挿入ソート.</h1> <p>📋安定なソートアルゴリズムだが、計算量O(nの2乗)となる.<br>
+📋ある程度整列されたデータに対しては高速に動作する特徴がある.</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// 配列要素を順番に出力.</span>
+<span class="token keyword">void</span> <span class="token function">trace</span><span class="token punctuation">(</span><span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 隣接要素の間に1つの空白を出力.</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// [挿入ソート]</span>
+<span class="token comment">// [ソート済みの部分列]と[未ソートの部分列]に分割.</span>
+<span class="token comment">// 先頭の要素はソート済みと見なす.</span>
+<span class="token comment">// 1. 未ソート部分の先頭から要素を1つ取り出しvに記録.</span>
+<span class="token comment">// 2. ソート済みの部分において、vより大きい要素を後方へ1つずつ移動.</span>
+<span class="token comment">// 3. 最後に空いた位置に「取り出した要素v」を挿入.</span>
+<span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span> <span class="token comment">// 未ソートの部分列の先頭を表すループ変数.</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">;</span> <span class="token comment">// A[i]の値を一時的に保持しておくための変数.</span>
+    <span class="token keyword">int</span> j<span class="token punctuation">;</span> <span class="token comment">// ソート済み部分列からvを挿入するための位置を探すループ変数.</span>
+    
+    <span class="token comment">// 先頭要素[0]はソート済みとみなすためi=1から開始.</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 未ソート部分の先頭要素[i]をvに一時保存.</span>
+        v <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        j <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// ソート済みの部分列の後方から大小比較を繰り返す.</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            A<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            j<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        A<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+        <span class="token function">trace</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// 挿入ソート - [ソート済みの部分列]と[未ソートの部分列]に分割.</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> A<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token function">trace</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 挿入ソート処理.</span>
+    <span class="token function">insert</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/algorithm-traning/" class="prev router-link-active">
+          データ構造とアルゴリズム.
+        </a></span> <span class="next"><a href="/algorithm-traning/bubblesort/">
+          📕 バブルソート.
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/algorithm-traning/assets/js/app.e15e1334.js" defer></script><script src="/algorithm-traning/assets/js/10.fcf83ea1.js" defer></script>
+  </body>
+</html>
