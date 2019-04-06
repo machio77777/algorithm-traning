@@ -1,7 +1,15 @@
 
 # :closed_book: シェルソート.
 
-:clipboard:一定間隔離れた要素のみを対象とした挿入ソート.
+:pushpin:**シェルソートの特徴.**
+- ほぼ整列されたデータに対して高速に動作するという挿入ソートの特徴を活かす高速なアルゴリズム.
+- 一定間隔離れた要素のみを対象とした挿入ソート.
+
+:pushpin:**シェルソートの手順.**
+
+一定間隔g{4,3,1}を用いたシェルソートは以下の通り.
+
+<img src='../.vuepress/public/shellsort-1.png' style='width:60%;' />
 
 ```cpp
 #include <iostream>
@@ -12,7 +20,7 @@ using namespace std;
 long long cnt;
 vector<int> G;
 
-// [挿入ソート]
+// 挿入ソート
 void insertSort(int A[], int N, int g) {
     
     // 間隔gを指定した挿入ソート.
@@ -28,7 +36,7 @@ void insertSort(int A[], int N, int g) {
     }
 }
 
-// [シェルソート]
+// シェルソート
 void shellSort(int A[], int N) {
     // 数列Gを生成.
     for (int h = 1; ; ) {
@@ -44,20 +52,9 @@ void shellSort(int A[], int N) {
         insertSort(A, N, G[i]);
     }
 }
+```
 
-int main(int argc, char** argv) {
-    
-    int N = 13;
-    int A[] = {17, 14, 4, 2, 5, 10, 7, 1, 6, 3, 9, 6, 11};
-    cnt = 0;    
-
-    // シェルソート.
-    shellSort(A, N);
-    
-    for (int i = 0; i < N; i++) {
-        cout << A[i];
-        cout << " ";
-    }
-    return 0;
-}
+:mag_right:対象ソースは以下に格納.
+```
+/source/1.sort/shell.cpp
 ```

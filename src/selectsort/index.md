@@ -1,18 +1,25 @@
 
 # :closed_book: 選択ソート.
 
-:clipboard:安定なソートアルゴリズムだが計算量O(nの2乗)となる. 
+:pushpin:**選択ソートの特徴.**
+- 安定なソートアルゴリズムだが計算量O(nの2乗)となる. 
+
+:pushpin:**選択ソートの手順.**
+
+挿入、バブルソート同様に[ソート済みの部分列]と[未ソートの部分列]に分けられる.
+
+以下の処理をN-1回繰り返す.  
+:one: 未ソート部分列から最小の要素の位置minjを特定.  
+:two: minjの位置にある要素と未ソート部分の先頭要素を交換.
+
+<img src='../.vuepress/public/selectsort-1.png' style='width:60%;' />
 
 ```cpp
 #include <iostream>
 
 using namespace std;
 
-// [選択ソート]
-// 挿入ソート同様に[ソート済みの部分列]と[未ソートの部分列]に分ける.
-// 以下の処理をN-1回繰り返す.
-// 1. 未ソート部分列から最小の要素の位置minjを特定.
-// 2. minjの位置にある要素と未ソート部分の先頭要素を交換.
+// 選択ソート
 void selection(int A[], int N) {
     
     int minj, tmp;
@@ -36,20 +43,9 @@ void selection(int A[], int N) {
         A[minj] = tmp;
     }
 }
- 
-int main(int argc, char** argv) {
-    
-    int N = 10;
-    int A[] = {17, 14, 4, 2, 5, 10, 7, 1, 6, 3};
-    
-    // 選択ソート処理.
-    selection(A, N);
-    
-    for (int i = 0; i < N; i++) {
-        cout << A[i];
-        cout << " ";
-    }
-    
-    return 0;
-}
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/1.sort/select.cpp
 ```
