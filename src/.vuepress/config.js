@@ -7,6 +7,7 @@ module.exports = {
   themeConfig: {
     sidebar: [
       '/',
+      '/intro/',
       '/insertsort/',
       '/bubblesort/',
       '/selectsort/',

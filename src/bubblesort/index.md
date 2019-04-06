@@ -1,17 +1,23 @@
 
 # :closed_book: バブルソート.
 
-:clipboard:安定なソートアルゴリズムだが計算量O(nの2乗).
+:pushpin:**バブルソートの特徴.**
+- 安定なソートアルゴリズムだが計算量O(n^2).
+
+:pushpin:**バブルソートの手順.**
+
+挿入ソート同様に[ソート済みの部分列]と[未ソートの部分列]に分けられる.
+
+:one:配列の末尾から隣接する要素を順番に比べ、大小関係が逆の場合は入れ替える.
+
+<img src='../.vuepress/public/bubblesort-1.png' style='width:60%;' />
 
 ```cpp
 #include <iostream>
 
 using namespace std;
 
-// [バブルソート]
-// 挿入ソート同様に[ソート済みの部分列]と[未ソートの部分列]に分けられる.
-// 未ソート部分が無くなる迄、以下の処理を繰り返す.
-// 1. 配列の末尾から隣接する要素を順番に比べ、大小関係が逆の場合は入れ替える.
+// バブルソート
 void bubble(int A[], int N) {
     
     // i:未ソート部分の先頭インデックス.
@@ -28,19 +34,9 @@ void bubble(int A[], int N) {
         }
     }
 }
- 
-int main(int argc, char** argv) {
-    
-    int N = 10;
-    int A[] = {17, 14, 4, 2, 5, 10, 7, 1, 6, 3};
-    
-    // バブルソート処理.
-    bubble(A, N);
-    
-    for (int i = 0; i < N; i++) {
-        cout << A[i];
-        cout << " ";
-    }
-    return 0;
-}
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/1.sort/bubble.cpp
 ```

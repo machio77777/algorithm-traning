@@ -1,7 +1,9 @@
 
 # データ構造とアルゴリズム.
 
-:mortar_board:C++言語でのアルゴリズムとデータ構造 :mortar_board:
+:clipboard:**導入.**
+
+:mortar_board:[アルゴリズムとは!?](/intro/)
 
 :clipboard:**整列.**  
 
