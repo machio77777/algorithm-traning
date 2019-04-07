@@ -1,14 +1,22 @@
 
 # :orange_book: スタック.
 
-:clipboard:一時的にデータを退避したい時に有効なデータ構造で、LIFOの原則に従ったデータ構造.
+:pushpin:**スタックの特徴.**
+- 一時的にデータを退避したい時に有効なデータ構造で、LIFOの原則に従ったデータ構造.
 
+:pushpin:**スタックの手順.**
+
+:one:push(x):スタックのトップに要素xを追加.  
+:two:pop():スタックのトップから要素を取り出す.  
+:three:isEmpty():スタックが空かどうかを調べる.  
+:four:isFull():スタックが満杯かどうかを調べる.  
+
+逆ポーランド記法で記述された数式は、スタックを用いて計算が可能.
+
+<img src='../.vuepress/public/stack-1.png' style='width:60%;' />
+
+pushは最後尾に要素追加、popは最後尾から要素取得.
 ```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
 int top, S[1000];
 
 // 要素の追加
@@ -23,7 +31,9 @@ int pop() {
     // indexがtopの要素取得
     return S[top+1]; 
 }
-
+```
+スタック操作の計算量はpop、pushともにO(1)となる.
+```cpp
 int main(void){
     
     vector<string> strList = { "7", "3", "+", "10", "8", "-", "7", "4", "*" };
@@ -56,4 +66,9 @@ int main(void){
     return 0;
 }
 
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/2.structure/stack.cpp
 ```

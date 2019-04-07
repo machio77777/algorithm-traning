@@ -17,7 +17,9 @@
 
 :clipboard:**データ構造.**
 
-:orange_book:[スタック](/stack/) 
+:orange_book:[スタック](/stack/) | 
+:orange_book:[キュー](/queue/) | 
+:orange_book:[連結リスト](/list/)
 
 :clipboard:**再帰と分割統治法.**
 

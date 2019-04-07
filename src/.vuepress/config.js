@@ -16,6 +16,7 @@ module.exports = {
       '/partition/',
       '/quicksort/',
       '/stack/',
+      '/queue/',
       '/allsearch/',
       '/linearsearch/',
       '/splitsearch/',
