@@ -1,8 +1,24 @@
 
 # :closed_book: クイックソート.
 
-:clipboard:一般的に最も高速なソートアルゴリズムと言われ、計算量O(nlogn)となる.
+:pushpin:**クイックソートの特徴.**
+- 一般的に最も高速なソートアルゴリズムと言われ計算量O(nlogn).
 
+:pushpin:**クイックソートの手順.**  
+クイックソートは分割統治法に基づくアルゴリズム.  
+:one:配列全体を対象としてquickSortを実行.  
+:two:quickSortは以下のとおり.  
+-- :one:partitionにより、対象の部分配列を前後2つの部分配列へ分割.  
+-- :two:前方の部分配列に対してquickSortを実行.  
+-- :three:後方の部分配列に対してquickSortを実行.  
+
+partitionで2つ分割し、2つのグループに再帰的にquickSortを行う.
+
+<img src='../.vuepress/public/quicksort-1.png' style='width:60%;' />  
+
+クイックソートはpartition内部で離れた要素を交換するので安定アルゴリズムではない.
+
+ただしマージソートとは違い、追加のメモリ領域が不要でインプレースソートである特徴がある.
 ```cpp
 #include <iostream>
 
@@ -59,4 +75,9 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/5.hsort/quick.cpp
 ```

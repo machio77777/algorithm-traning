@@ -1,8 +1,21 @@
 
 # :closed_book: パーティション.
 
-:clipboard:jがpからr-1まで毎回1回つ後方に移動するので、計算量O(n)のアルゴリズムとなる.
+:pushpin:**パーティションの特徴.**
+- jがpからr-1まで毎回1回つ後方に移動するので、計算量O(n)のアルゴリズム.
 
+:pushpin:**パーティションの手順.**
+- 配列Aのpatitionの範囲はpからr(それぞれ含む)まで.
+- partitionの基準となるA[r]をxと設定.
+- x以下の要素はp〜iまでの範囲に、xより大きい要素はi+1〜jまでの範囲に移動させる.
+
+<img src='../.vuepress/public/partition-1.png' style='width:60%;' />  
+
+数列{3,9,8,1,5,6,2,5}に対してpartitionを行う場合は以下のとおり.
+
+<img src='../.vuepress/public/partition-2.png' style='width:60%;' />  
+
+パーティションは離れた要素を交換するので、ソートに応用する場合には注意が必要.
 ```cpp
 #include <iostream>
 
@@ -38,23 +51,9 @@ int partition(int p, int r) {
     t = A[i + 1], A[i + 1] = A[r]; A[r] = t;
     return i + 1;
 }
+```
 
-int main(int argc, char** argv) {
-    
-    int q = partition(0, n - 1);
-    
-    // [実行結果] 9 5 8 7 4 2 6 [11] 21 13 19 12
-    for (int i = 0; i < n; i++) {
-        
-        if (i == q) {
-            cout << "[";
-        }
-        cout << A[i];
-        if (i == q) {
-            cout << "]";
-        }
-        cout << " ";
-    }
-    return 0;
-}
+:mag_right:対象ソースは以下に格納.
+```
+/source/5.hsort/partition.cpp
 ```
