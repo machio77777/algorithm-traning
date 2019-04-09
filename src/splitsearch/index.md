@@ -1,7 +1,20 @@
 
 # :blue_book: 二分探索.
 
-:clipboard:Sの要素が昇順ソートされている制約を利用した二分探索は計算量O(log2N).
+:pushpin:**二分探索の特徴.**
+- Sの要素が昇順ソートされている制約を利用した二分探索は計算量O(log2N).
+
+:pushpin:**二分探索の手順.**
+
+二分探索では探索範囲を表すための変数left、right、中央の位置をmidを定義.
+
+<img src='../.vuepress/public/splitsearch-1.png' style='width:70%;' />  
+
+昇順ソートされた整列に対して対象要素を二分探索する場合は以下のとおり.
+
+<img src='../.vuepress/public/splitsearch-2.png' style='width:70%;' />  
+
+探索範囲の真ん中midを(left+right)/2で求め、keyと真ん中の要素を比較.
 
 ```cpp
 #include <iostream>
@@ -34,7 +47,11 @@ int binarySearch(int key) {
     }
     return 0;
 }
+```
 
+最悪の場合の計算量はO(n).
+
+```cpp
 int main(int argc, char** argv) {
     
     int T[] = {4, 8, 1, 88, 43, 7, 9, 3, 90};
@@ -49,4 +66,9 @@ int main(int argc, char** argv) {
     cout << sum << endl;
     return 0;
 }
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/3.search/binary.cpp
 ```
