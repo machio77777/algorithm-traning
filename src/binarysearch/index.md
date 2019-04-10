@@ -1,5 +1,5 @@
 
-# :blue_book: 二分探索木.
+# :green_book: 二分探索木.
 
 :clipboard:木の高さをhとすると、計算量O(h)のアルゴリズムとなる.
 

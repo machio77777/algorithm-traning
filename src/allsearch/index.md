@@ -1,7 +1,19 @@
 
-# :ledger: 全検索.
+# :ledger: 全探索.
 
-:clipboard:再帰関数の中で2つの再帰関数を呼び出せば計算量O(2のn乗)となる.
+:pushpin:**全探索の特徴.**
+- 数列の要素を選ぶ組み合わせを列挙するアルゴリズム.
+- 再帰関数の中で2つの再帰関数を呼び出せば計算量O(2^n)となる.
+
+:pushpin:**全探索の手順.**
+
+:one:solve(i,m)において与えられた整数を作ることが出来た場合はmが0となる.  
+:two:mが0より大きくiがn以上、またはmが0より小さくなった時は整数が作れなかった.  
+:three:solve(i + 1, m)かsolve(i + 1, m - S[i])のいずれかがtrueの時に作れる.
+
+数列A={1,5,7}に対して、8が作れるかを判定する例.
+
+<img src='../.vuepress/public/allsearch-1.png' style='width:70%;' />
 
 ```cpp
 #include <iostream>
@@ -11,15 +23,11 @@ using namespace std;
 int S[] = {1, 2, 3, 5, 6, 7, 8, 11, 19, 20, 44, 90};
 int n = 12;
 
-// 再帰処理で指定値が生成可能か判定
 int solve(int i, int m) {
     
-    // mが0の時は与えられた整数を作れた場合
     if (m == 0) {
         return 1;
     }
-    // mが0より大きくiがn以上になった場合
-    // またはmが0より小さくなった場合
     if (i >= n) {
         return 0;
     }
@@ -30,7 +38,7 @@ int solve(int i, int m) {
 int main(int argc, char** argv) {
     
     int T[] = {3, 13, 300};
-    int q = 1;
+    int q = 3;
     
     for (int i = 0; i < q; i++) {
         if (solve(0, T[i])) {
@@ -41,4 +49,9 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/4.recursion/allsearch.cpp
 ```

@@ -1,5 +1,5 @@
 
-# :blue_book: 二分木.
+# :green_book: 二分木.
 
 :clipboard:各節点を1度ずつ訪問するので計算量O(n)となる.
 

@@ -18,17 +18,26 @@
 :clipboard:**データ構造.**
 
 :orange_book:[スタック](/stack/) | 
-:orange_book:[キュー](/queue/)  
+:orange_book:[キュー](/queue/) | 
+:orange_book:[リスト(未)]()
 
-:clipboard:**再帰と分割統治法.**
+:clipboard:**再帰・分割統治法.**
 
-:ledger:[全検索](/allsearch/)  
+:ledger:[全探索](/allsearch/)  
 
-:clipboard:**探索と木構造.**
+:clipboard:**探索.**
 
-:blue_book:[線形探索](/linearsearch/) | :blue_book:[二分探索](/splitsearch/)  
-:blue_book:[根付き木](/roottree/) | :blue_book:[二分木](/binarytree/) | :blue_book:[木の巡回](/patroltree/)  
-:blue_book:[二分探索木](/binarysearch/)  
+:blue_book:[線形探索](/linearsearch/) | 
+:blue_book:[二分探索](/splitsearch/) | 
+:blue_book:[ハッシュ(未)]()
+
+:clipboard:**木構造.**
+
+:green_book:[根付き木](/roottree/) | 
+:green_book:[二分木](/binarytree/) | 
+:green_book:[木の巡回](/patroltree/)
+ 
+:green_book:[二分探索木](/binarysearch/)  
 
 **:clipboard:参考文献.**
 
