@@ -29,7 +29,7 @@
 
 :blue_book:[線形探索](/linearsearch/) | 
 :blue_book:[二分探索](/splitsearch/) | 
-:blue_book:[ハッシュ(未)]()
+:blue_book:[ハッシュ](/hash/)
 
 :clipboard:**木構造.**
 
