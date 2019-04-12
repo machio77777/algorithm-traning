@@ -20,6 +20,7 @@ module.exports = {
       '/allsearch/',
       '/linearsearch/',
       '/splitsearch/',
+      '/hash/',
       '/roottree/',
       '/binarytree/',
       '/patroltree/',

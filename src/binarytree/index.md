@@ -1,8 +1,34 @@
 
 # :green_book: 二分木.
 
-:clipboard:各節点を1度ずつ訪問するので計算量O(n)となる.
+:pushpin:**二分木の特徴.**
+- 1つの根を持ち全ての節点についてその子の数が2以下である木が根付き二分木.
+- 各節点を1度ずつ訪問するので計算量O(n)となる.
 
+<img src='../.vuepress/public/binarytree-1.png' style='width:75%;' />
+
+:pushpin:**二分木の構造.**
+
+:one:節点の数に変化がない二分木では、節点が子を持たない場合にはNILを設定し、番兵の役割を担う.
+
+<img src='../.vuepress/public/binarytree-2.png' style='width:50%;' />
+
+高さを求めるアルゴリズムは左の子の高さ+1と右の子の高さ+1の大きい方を節点とする.
+```cpp
+int setHeight(int u) {
+    int h1 = 0, h2 = 0;
+    // 左の子の高さ+1
+    if (T[u].left != NIL) {
+        h1 = setHeight(T[u].left) + 1;
+    }
+    // 右の子の高さ+1
+    if (T[u].right != NIL) {
+        h2 = setHeight(T[u].right) + 1;
+    }
+    return H[u] = (h1 > h2 ? h1 : h2);
+}
+```
+根付き二分木Tの各節点uの各種情報を出力するプログラム.
 ```cpp
 #include <iostream>
 
@@ -20,19 +46,6 @@ void setDepth(int u, int d) {
     D[u] = d;
     setDepth(T[u].left, d+1);
     setDepth(T[u].right, d+1);
-}
-
-int setHeight(int u) {
-    int h1 = 0, h2 = 0;
-    // 左の子の高さ+1
-    if (T[u].left != NIL) {
-        h1 = setHeight(T[u].left) + 1;
-    }
-    // 右の子の高さ+1
-    if (T[u].right != NIL) {
-        h2 = setHeight(T[u].right) + 1;
-    }
-    return H[u] = (h1 > h2 ? h1 : h2);
 }
 
 // 節点uの兄弟を返す
@@ -115,4 +128,9 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
+```
+
+:mag_right:対象ソースは以下に格納.
+```
+/source/6.tree/binary.cpp
 ```

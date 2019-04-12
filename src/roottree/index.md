@@ -7,7 +7,7 @@
 
 <img src='../.vuepress/public/roottree-1.png' style='width:40%;' />
 
-:pushpin:**根付き木の手順.**
+:pushpin:**根付き木の構造.**
 
 :one:構造体Node{int p, l, r;}で左子右兄表現.  
 :two:節点uの深さはuからその親を辿り、根に至るまでの辺の数を計算.  
