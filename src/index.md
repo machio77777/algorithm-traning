@@ -36,8 +36,10 @@
 :green_book:[根付き木](/roottree/) | 
 :green_book:[二分木](/binarytree/) | 
 :green_book:[木の巡回](/patroltree/)
+
+:clipboard:**二分探索木.**
  
-:green_book:[二分探索木](/binarysearch/)  
+:notebook:[探索](/binarysearch/)  
 
 **:clipboard:参考文献.**
 
